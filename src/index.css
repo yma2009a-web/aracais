@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700;900&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -19,6 +19,17 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: none; /* Hide default cursor for custom cursor */
+}
+
+/* Fallback for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
 }
 
 html {
@@ -27,15 +38,37 @@ html {
 
 /* Custom scrollbar for a premium feel */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-obsidian);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-charcoal-light);
-  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold);
+}
+
+/* Utilities */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  color: transparent;
+}
+
+.text-stroke:hover {
+  -webkit-text-stroke: 1px var(--color-gold);
+  color: transparent;
+}
+
+.text-stroke-gold {
+  -webkit-text-stroke: 1px var(--color-gold);
+  color: transparent;
+}
+
+.bg-grid {
+  background-size: 60px 60px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
